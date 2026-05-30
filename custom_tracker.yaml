@@ -1,0 +1,13 @@
+# Ultralytics YOLO custom ByteTrack settings
+tracker_type: bytrack  # Tipo de tracker
+track_high_thresh: 0.35  # Umbral de confianza para la primera asociación
+track_low_thresh: 0.1   # Umbral bajo para mantener chicles que se están desvaneciendo
+new_track_thresh: 0.4   # Confianza mínima para crear un ID nuevo
+
+# =========================================================================
+# LA CLAVE ESTÁ AQUÍ:
+# =========================================================================
+track_buffer: 60        # ¡Aumentado! Número de frames que el tracker "espera" y recuerda 
+                        # un chicle desaparecido antes de borrar su ID (si tu video va a 30fps, son 2 segundos)
+
+match_thresh: 0.8       # Umbral de coincidencia de distancias (IoU) para enlazar los IDs

@@ -17,12 +17,9 @@ der_arriba = int(ancho * 0.70)
 izq_abajo = int(ancho * 0.15)
 der_abajo = int(ancho * 0.85)
 
-# =========================================================================
-# CONJUNTOS PARA GUARDAR LOS IDS ÚNICOS (Evita duplicados)
-# =========================================================================
+
 chicles_contados_centro = set()
 chicles_contados_lateral = set()
-# =========================================================================
 
 while True:
     ret, frame = cap.read()
@@ -91,7 +88,7 @@ while True:
     cv2.putText(frame, f"En Frame - Centro: {actual_central} | Lats: {actual_laterales}",
                 (20, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 255), 2)
 
-    cv2.putText(frame, f"TOTAL ACUMULADO (Sin repetir):",
+    cv2.putText(frame, f"TOTAL ACUMULADO:",
                 (20, 80), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 255), 2)
     cv2.putText(frame, f"-> Centrales:  {len(chicles_contados_centro)}",
                 (40, 110), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
@@ -99,7 +96,7 @@ while True:
                 (40, 140), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 150, 0), 2)
 
     out.write(frame)
-    cv2.imshow("Deteccion chicles", frame)
+    cv2.imshow("Chicles", frame)
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 

@@ -3,7 +3,4 @@ venv/
 *.pyc
 .idea/
 Nivel-de-Cibismo-4/
-VIDEOS/frames_extraidos/
-VIDEOS/frames_extraidos_2/
-VIDEOS/video_dron.MP4
-VIDEOS/video_cortado.mp4
+VIDEOS/

@@ -9,7 +9,7 @@ ancho = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 alto = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 fps = cap.get(cv2.CAP_PROP_FPS)
 
-out = cv2.VideoWriter("VIDEOS/resultado.mp4", cv2.VideoWriter_fourcc(*"mp4v"), fps, (ancho, alto))
+out = cv2.VideoWriter("VIDEOS/resultados/resultado.mp4", cv2.VideoWriter_fourcc(*"mp4v"), fps, (ancho, alto))
 
 # CONFIGURACIÓN DE LA PERSPECTIVA
 izq_arriba = int(ancho * 0.30)

@@ -6,7 +6,7 @@ from collections import defaultdict
 model = YOLO("best.pt")
 
 # Cargar Imagen
-imagen_path = ("VIDEOS/frames_extraidos/frame_2.jpg")
+imagen_path = ("VIDEOS/MedinaAzahara/medina_azahara_1.jpg")
 frame = cv2.imread(imagen_path)
 alto, ancho = frame.shape[:2]
 
@@ -120,7 +120,7 @@ cv2.putText(frame, f"Escala: 1 celda = 1 m²  ({CELDA_PX}px)",
             (20, alto - 30), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (200, 200, 200), 1)
 
 # Mostrar y descargar la imagen
-cv2.imwrite("VIDEOS/resultado_imagen.jpg", frame)
+cv2.imwrite("VIDEOS/resultados/resultado_medinaazahara.jpg", frame)
 
 cv2.imshow("Detección chicles", frame)
 cv2.waitKey(0)

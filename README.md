@@ -2,10 +2,6 @@
 
 Sistema de visión artificial para la **detección y cuantificación de marcas de chicle** en suelos de institutos, desarrollado con YOLOv11 y OpenCV. Permite analizar vídeos grabados con dron y calcular la densidad de chicles por metro cuadrado, diferenciando entre zonas centrales y laterales del pasillo.
 
-<figure class="video_container">
-  <iframe src="VIDEOS/resultado.mp4" frameborder="0" allowfullscreen="true"></iframe>
-</figure>
-
 ---
 
 ## Descripción del Proyecto
@@ -13,11 +9,6 @@ Sistema de visión artificial para la **detección y cuantificación de marcas d
 El proyecto nació de la necesidad de medir objetivamente el nivel de "cibismo" (suciedad por chicles pegados) en los patios e instalaciones de centros educativos. A través de un dron que graba el suelo a baja altura (~2 metros), el sistema detecta automáticamente cada marca de chicle, las geolocaliza en una cuadrícula de metros cuadrados reales y genera un informe con la densidad por zona.
 
 El modelo está diseñado para **generalizarse a distintos tipos de suelo** — hormigón, asfalto, baldosas — sin necesidad de reentrenar desde cero para cada instituto.
-
-<figure class="video_container">
-  <iframe src="VIDEOS/resultados/resultado_video_grancapitan.mp4" allowfullscreen="true"> 
-</iframe>
-</figure>
 
 ---
 

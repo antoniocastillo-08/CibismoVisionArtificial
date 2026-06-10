@@ -10,6 +10,11 @@ El proyecto nació de la necesidad de medir objetivamente el nivel de "cibismo" 
 
 El modelo está diseñado para **generalizarse a distintos tipos de suelo** — hormigón, asfalto, baldosas — sin necesidad de reentrenar desde cero para cada instituto.
 
+<figure class="video_container">
+  <iframe src="VIDEOS/resultados/resultado_video_grancapitan.mp4" allowfullscreen="true"> 
+</iframe>
+</figure>
+
 ---
 
 ## Características

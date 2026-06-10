@@ -4,11 +4,9 @@ import numpy as np
 from collections import defaultdict
 
 # --- CONFIGURACIÓN DE PANTALLA ---
-# Ajusta esto si tu monitor tiene otra resolución (ej: 1920x1080)
 MAX_ANCHO_PANTALLA = 1366
 MAX_ALTO_PANTALLA  = 768
 
-# Variables globales para capturar los clics
 puntos_calibracion = []
 
 def capturar_clics(event, x, y, flags, param):
@@ -24,7 +22,7 @@ def capturar_clics(event, x, y, flags, param):
 model = YOLO("best.pt")
 
 # 2. Cargar Imagen Original
-imagen_path = "VIDEOS/LopezNeira/lopez_neira_6.jpg"
+imagen_path = "VIDEOS/frames_ruta_entrada/frame_250.jpg"
 frame = cv2.imread(imagen_path)
 if frame is None:
     print(f"No se pudo cargar la imagen en: {imagen_path}")
@@ -32,7 +30,6 @@ if frame is None:
 
 alto_orig, ancho_orig = frame.shape[:2]
 
-# 3. Redimensionar temporalmente para que quepa en tu pantalla durante la calibración
 escala_pantalla = min(MAX_ANCHO_PANTALLA / ancho_orig, MAX_ALTO_PANTALLA / alto_orig, 1.0)
 ancho_vista = int(ancho_orig * escala_pantalla)
 alto_vista = int(alto_orig * escala_pantalla)
@@ -43,7 +40,7 @@ img_calibracion = cv2.resize(frame, (ancho_vista, alto_vista))
 cv2.namedWindow("PASO 1: Haz clic en el Punto 1 y luego en el Punto 2")
 cv2.setMouseCallback("PASO 1: Haz clic en el Punto 1 y luego en el Punto 2", capturar_clics)
 
-print("--> Selecciona dos puntos en la imagen que se ha abierto (ej: los extremos de una baldosa o tu zapato).")
+print("--> Selecciona dos puntos en la imagen que se ha abierto.")
 while len(puntos_calibracion) < 2:
     cv2.imshow("PASO 1: Haz clic en el Punto 1 y luego en el Punto 2", img_calibracion)
     # Si presionas 'q' o ESC, cancela
@@ -60,11 +57,10 @@ p2 = (int(puntos_calibracion[1][0] / escala_pantalla), int(puntos_calibracion[1]
 
 distancia_px = np.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
-# 6. Preguntar la distancia real por consola
 print(f"\nPuntos registrados en la imagen original: P1={p1}, P2={p2} ({distancia_px:.1f} px)")
 distancia_real_cm = float(input("Introduce la distancia real entre esos dos puntos (en centímetros): "))
 
-# 7. Calcular nueva escala (Píxeles por Metro)
+# 6. Calcular nueva escala (Píxeles por Metro)
 # Si 'distancia_real_cm' equivale a 'distancia_px', entonces 100 cm (1 metro) serán:
 PX_POR_METRO = (distancia_px / distancia_real_cm) * 100.0
 
@@ -85,7 +81,7 @@ for gx in range(celdas_x):
                       (200, 200, 200), 1)
 
 # Detección del modelo
-resultados = model.predict(frame, conf=0.10, iou=0.4, verbose=False)
+resultados = model.predict(frame, conf=0.5, iou=0.4, verbose=False)
 
 chicles_unicos = {}
 conteo_celdas  = defaultdict(int)

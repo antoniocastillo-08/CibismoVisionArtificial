@@ -6,6 +6,7 @@ Sistema de visión artificial para la **detección y cuantificación de marcas d
   <iframe src="VIDEOS/resultado.mp4" frameborder="0" allowfullscreen="true"> 
 </iframe>
 </figure>
+
 ---
 
 ## Descripción del Proyecto

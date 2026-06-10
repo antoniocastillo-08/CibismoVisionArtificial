@@ -2,6 +2,10 @@
 
 Sistema de visión artificial para la **detección y cuantificación de marcas de chicle** en suelos de institutos, desarrollado con YOLOv11 y OpenCV. Permite analizar vídeos grabados con dron y calcular la densidad de chicles por metro cuadrado, diferenciando entre zonas centrales y laterales del pasillo.
 
+<figure class="video_container">
+  <iframe src="VIDEOS/resultado.mp4" frameborder="0" allowfullscreen="true"></iframe>
+</figure>
+
 ---
 
 ## Descripción del Proyecto
